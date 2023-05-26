@@ -1,0 +1,29 @@
+.timer-list h2 {
+  margin-bottom: 10px;
+}
+
+.timer-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.timer-list li {
+  margin-bottom: 10px;
+}
+
+.timer-list .timer-message {
+  font-weight: bold;
+}
+
+.timer-list .timer-time {
+  margin-right: 10px;
+}
+
+.timer-list button {
+  padding: 5px 10px;
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
