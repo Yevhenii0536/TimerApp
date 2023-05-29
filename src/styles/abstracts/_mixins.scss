@@ -1,0 +1,15 @@
+@import '../../styles/abstracts/vars';
+
+@mixin modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@mixin modalContent {
+  padding: $modal-content-padding;
+  border-radius: $modal-border-radius;
+  text-align: center;
+}

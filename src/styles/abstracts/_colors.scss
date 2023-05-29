@@ -1,0 +1,68 @@
+:root {
+  --primary-light: #007BFF;
+  --secondary-light: #89939A;
+  --elements-light: #E2E6E9;
+  --bg-light: #FAFBFC;
+  --bg-dark: #0F1121;
+  --secondary-dark: #75767F;
+  --elements-dark: #3B3E4A;
+  --surface1-dark: #161827;
+
+
+ --green: #27AE60;
+
+  --red: #EB5757;
+  --white: #FFFFFF;
+  --black: #000000;
+}
+
+
+.light {
+  --bg: var(--bg-light);
+  --primary: var(--primary-light);
+  --secondary: var(--secondary-light);
+  --border: var(--elements-light);
+  --border-2: var(--icons-light);
+  --border-3: var(--elements-light);
+  --hover: var(--primary-light);
+  --item-hover: var(--secondary-light);
+  --item-hover2: var(--bg-light);
+  --primary-bg: var(--bg-light);
+  --elements: var(--elements-light);
+  --link: var(--secondary-light);
+  --selected: var(--green);
+  --favorites-hover: var(--bg-light);
+  --hover-lighter: var(--primary-light);
+  --color-btn: var(--icons-light);
+  --hover-accent: var(--primary-light);
+  --hover-cart: var(--bg-light);
+  --border-icons: var(--icons-light);
+  --pagination-hover: var(--bg-light);
+  --pagination-border: var(--primary-light);
+  --contacts-decoration: var(--green);
+}
+
+.dark {
+  --bg: var(--bg-dark);
+  --primary: var(--white-dark);
+  --secondary: var(--secondary-dark);
+  --border: var(--surface1-dark);
+  --border-2: var(--surface2-dark);
+  --border-3: var(--surface2-dark);
+  --hover: var(--accent-dark);
+  --item-hover: var(--icons-dark);
+  --item-hover2: var(--surface2-dark);
+  --primary-bg: var(--surface1-dark);
+  --elements: var(--elements-dark);
+  --link: var(--white-dark);
+  --selected: var(--white-dark);
+  --favorites-hover: var(--icons-dark);
+  --hover-lighter: var(--icons-dark);
+  --color-btn: var(--secondary-dark);
+  --hover-cart: var(--accent-hover);
+  --hover-accent: var(--accent-hover);
+  --border-icons: var(--icons-dark);
+  --pagination-hover: var(--elements-dark);
+  --pagination-border: var(--elements-dark);
+  --contacts-decoration: var(--red);
+}

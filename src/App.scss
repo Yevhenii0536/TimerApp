@@ -1,0 +1,15 @@
+@import './styles/abstracts/colors';
+
+.App {
+  height: 100vh;
+  background-color: var(--bg);
+}
+
+.light {
+  background-color: var(--bg-light);
+}
+
+.dark {
+  background-color: var(--bg-dark);
+  color: var(--white);
+}

@@ -1,0 +1,18 @@
+@import '../../styles/abstracts/colors';
+@import '../../styles/abstracts/vars';
+@import '../../styles/abstracts/extends';
+
+.button-form {
+  @extend %button;
+  @extend %button_primary;
+}
+
+.timer-list__button {
+  @extend %button;
+  @extend %button_red;
+}
+
+.modal-button {
+  @extend %button;
+  @extend %button_primary;
+}

@@ -1,0 +1,33 @@
+@import './vars.scss';
+
+%button {
+  border: none;
+  border-radius: $button-border-radius;
+  cursor: pointer;
+  color: var(--white);
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+%button_primary {
+  padding: 
+    $button-primary-padding-vertical 
+    $button-primary-padding-horizontal;
+  background-color: var(--primary-light);
+}
+
+%button_red {
+  padding: 
+  $button-red-padding-vertical 
+  $button-red-padding-horizontal;
+  background-color: var(--red)
+}
+
+%flex_row_center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

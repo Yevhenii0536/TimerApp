@@ -1,65 +1,39 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { TimerForm } from '../TimerForm/TimerForm';
-import TimerList from '../TimerList/TimerList';
+import { TimerList } from '../TimerList/TimerList';
 import { Modal } from '../Modal/Modal';
-import './TimerApp.scss';
 import { CurrentTime } from '../CurrentTime/CurrentTime';
+import './TimerApp.scss';
+import { useSelector, useDispatch } from 'react-redux';
+import { actions } from '../../redux/store/reducers/timers.slice';
 
 export const TimerApp = () => {
-  const [timers, setTimers] = useState([]);
+  const { completedTimers } = useSelector((state) => state.timers);
   const [modalVisible, setModalVisible] = useState(false);
-  const [completedTimer, setCompletedTimer] = useState(null);
+  const [currentTimer, setCurrentTimer] = useState(null);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const timerInterval = setInterval(() => {
-      setTimers((prevTimers) =>
-        prevTimers.map((timer) => {
-          if (timer.time > 0) {
-            return { ...timer, time: timer.time - 1 };
-          } else if (timer.time === 0 && !timer.completed) {
-            setCompletedTimer(timer);
-            setModalVisible(true);
-            return { ...timer, completed: true };
-          }
-          return timer;
-        }),
-      );
-    }, 1000);
+    if (completedTimers.length > 0 && !modalVisible && currentTimer === null) {
+      setCurrentTimer(completedTimers[0]);
+      setModalVisible(true);
+    }
+  }, [completedTimers, modalVisible, currentTimer]);
 
-    return () => {
-      clearInterval(timerInterval);
-    };
-  }, []);
-
-  const createTimer = (seconds, message) => {
-    const newTimer = {
-      id: Date.now(),
-      time: seconds,
-      message: message,
-      completed: false,
-    };
-
-    setTimers((prevTimers) => [...prevTimers, newTimer]);
-  };
-
-  const deleteTimer = (id) => {
-    setTimers((prevTimers) => prevTimers.filter((timer) => timer.id !== id));
-  };
-
-  const closeModal = () => {
-    setTimers((prevTimers) =>
-      prevTimers.filter((timer) => timer.id !== completedTimer.id),
-    );
+  const handleModalClose = () => {
+    dispatch(actions.removeCompleted(currentTimer));
+    setCurrentTimer(null);
     setModalVisible(false);
-    setCompletedTimer(null);
   };
-
+  
   return (
     <div className="timer-app">
-      <TimerForm createTimer={createTimer} />
-      <TimerList timers={timers} deleteTimer={deleteTimer} />
+      <TimerForm />
+      <TimerList />
       <CurrentTime />
-      {modalVisible && <Modal timer={completedTimer} closeModal={closeModal} />}
+      {modalVisible && (
+        <Modal timer={currentTimer} handleModalClose={handleModalClose} />
+      )}
     </div>
   );
 };

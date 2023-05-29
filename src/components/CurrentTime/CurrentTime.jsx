@@ -1,18 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { BASE_URL } from '../../utils/constants';
+import { actions } from '../../redux/store/reducers/currentTime.slice';
 
 export const CurrentTime = () => {
-  const [currentTime, setCurrentTime] = useState('');
+  const currentTime = useSelector((state) => state.currentTime);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchCurrentTime = async () => {
       try {
-        const response = await fetch(
-          'http://worldtimeapi.org/api/timezone/Europe/Kyiv',
-        );
+        const response = await fetch(BASE_URL);
         const data = await response.json();
-        const rawTime = data.datetime;
-        const formattedTime = formatTime(rawTime);
-        setCurrentTime(formattedTime);
+        const rawTime = new Date(data.datetime).getTime();
+        dispatch(actions.setCurrentTime(rawTime));
       } catch (error) {
         console.error('Error fetching current time:', error);
       }
@@ -27,32 +28,12 @@ export const CurrentTime = () => {
     return () => {
       clearInterval(interval);
     };
-  }, []);
+  }, [dispatch]);
 
-  useEffect(() => {
-    const secondInterval = setInterval(() => {
-      const updatedTime = currentTime.split(':');
-      const hours = updatedTime[0];
-      const minutes = updatedTime[1];
-      const newSeconds = (parseInt(updatedTime[2], 10) + 1)
-        .toString()
-        .padStart(2, '0');
-      const updatedTimeString = `${hours}:${minutes}:${newSeconds}`;
-      setCurrentTime(updatedTimeString);
-    }, 1000);
+ const getFormattedTime = (timestamp) => {
+   const options = { timeStyle: 'short' };
+   return new Date(timestamp).toLocaleString('uk-UA', options);
+ };
 
-    return () => {
-      clearInterval(secondInterval);
-    };
-  }, [currentTime]);
-
-  const formatTime = (rawTime) => {
-    const date = new Date(rawTime);
-    const hours = date.getHours().toString().padStart(2, '0');
-    const minutes = date.getMinutes().toString().padStart(2, '0');
-    const seconds = date.getSeconds().toString().padStart(2, '0');
-    return `${hours}:${minutes}:${seconds}`;
-  };
-
-  return <div>{currentTime}</div>;
+  return <h2>{getFormattedTime(currentTime)}</h2>;
 };
