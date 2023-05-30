@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/TimerApp/static/css/main.d13e89b6.css",
+    "main.js": "/TimerApp/static/js/main.95f15bd9.js",
+    "static/js/787.28cb0dcd.chunk.js": "/TimerApp/static/js/787.28cb0dcd.chunk.js",
+    "index.html": "/TimerApp/index.html",
+    "main.d13e89b6.css.map": "/TimerApp/static/css/main.d13e89b6.css.map",
+    "main.95f15bd9.js.map": "/TimerApp/static/js/main.95f15bd9.js.map",
+    "787.28cb0dcd.chunk.js.map": "/TimerApp/static/js/787.28cb0dcd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d13e89b6.css",
+    "static/js/main.95f15bd9.js"
+  ]
+}
