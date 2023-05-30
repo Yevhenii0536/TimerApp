@@ -23,7 +23,9 @@ export const CurrentTime = () => {
 
   return (
     <h2>
-      {getFormattedTime(currentTime)}
+      {currentTime
+        ? getFormattedTime(currentTime)
+        : 'Loading...'}
     </h2>
   );
 };
