@@ -6,5 +6,5 @@ export const getWillEndTime = (currentTime, seconds) => {
 
 export const getFormattedTime = (timestamp) => {
    const options = { timeStyle: 'short' };
-   return new Date(timestamp).toLocaleString('uk-UA', options);
+   return new Date(timestamp).toLocaleString(undefined, options);
  };

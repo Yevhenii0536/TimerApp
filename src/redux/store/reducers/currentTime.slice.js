@@ -12,12 +12,6 @@ export const fetchCurrentTime = createAsyncThunk('currentTime',
 const currentTimeSlice = createSlice({
   name: 'currentTime',
   initialState: '',
-  reducers: {
-    setCurrentTime: (state, action) => {
-      return action.payload;
-    },
-  },
-
   extraReducers: (builder) => {
     builder.addCase(fetchCurrentTime.fulfilled, (state, action) => {
       return action.payload;
