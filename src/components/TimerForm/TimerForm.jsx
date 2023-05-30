@@ -39,7 +39,9 @@ export const TimerForm = () => {
       <h2>Створити таймер</h2>
 
       <div className="form-group">
-        <label htmlFor="seconds">Кількість секунд:</label>
+        <label htmlFor="seconds">
+          Кількість секунд:
+        </label>
 
         <input
           type="number"

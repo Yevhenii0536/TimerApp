@@ -1,28 +1,17 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { BASE_URL } from '../../utils/constants';
-import { actions } from '../../redux/store/reducers/currentTime.slice';
+import { fetchCurrentTime } from '../../redux/store/reducers/currentTime.slice';
+import { getFormattedTime } from '../../utils/helpers';
 
 export const CurrentTime = () => {
   const currentTime = useSelector((state) => state.currentTime);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const fetchCurrentTime = async () => {
-      try {
-        const response = await fetch(BASE_URL);
-        const data = await response.json();
-        const rawTime = new Date(data.datetime).getTime();
-        dispatch(actions.setCurrentTime(rawTime));
-      } catch (error) {
-        console.error('Error fetching current time:', error);
-      }
-    };
-
-    fetchCurrentTime();
+    dispatch(fetchCurrentTime());
 
     const interval = setInterval(() => {
-      fetchCurrentTime();
+      dispatch(fetchCurrentTime());
     }, 10000);
 
     return () => {
@@ -30,10 +19,11 @@ export const CurrentTime = () => {
     };
   }, [dispatch]);
 
- const getFormattedTime = (timestamp) => {
-   const options = { timeStyle: 'short' };
-   return new Date(timestamp).toLocaleString('uk-UA', options);
- };
 
-  return <h2>{getFormattedTime(currentTime)}</h2>;
+
+  return (
+    <h2>
+      {getFormattedTime(currentTime)}
+    </h2>
+  );
 };

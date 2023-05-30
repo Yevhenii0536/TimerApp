@@ -10,7 +10,6 @@ export const App = () => {
   const dispatch = useDispatch();
 
   const handleToggleTheme = () => {
-    console.log(value);
     dispatch(actions.toggleTheme())
   }
 

@@ -32,9 +32,8 @@ export const timers = createSlice({
               ...timer,
               seconds: timer.seconds - 1,
             });
-          } else {
+          } if (timer.seconds === 0) {
             correctTimers.completedTimers.push({ ...timer });
-            console.log(correctTimers.completedTimers, 'completed arr');
           }
 
           return correctTimers;
@@ -47,11 +46,6 @@ export const timers = createSlice({
 
       state.activeTimers = updatedTimers.activeTimers;
       state.completedTimers = updatedTimers.completedTimers;
-      console.log(state.completedTimers, 'completed');
-    },
-
-    setTheme: (state, { payload: theme }) => {
-      state.theme = theme;
     },
   },
 });

@@ -4,12 +4,7 @@ export const getWillEndTime = (currentTime, seconds) => {
   return `${new Date(newTimeString)}`;
 };
 
-export const getSecondsLeft = (targetTime) => {
-  const target = new Date(targetTime);
-  const current = new Date();
-
-  const diff = target.getTime() - current.getTime();
-  const secondsLeft = Math.floor(diff / 1000);
-
-  return secondsLeft;
-}
+export const getFormattedTime = (timestamp) => {
+   const options = { timeStyle: 'short' };
+   return new Date(timestamp).toLocaleString('uk-UA', options);
+ };

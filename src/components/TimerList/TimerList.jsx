@@ -11,7 +11,6 @@ export const TimerList = () => {
 
   useEffect(() => {
     if (!activeTimers.length) {
-      console.log('cleared 0')
       clearInterval(timerInterval);
       setTimerInterval(null);
 
@@ -21,15 +20,11 @@ export const TimerList = () => {
     if (activeTimers.length && !timerInterval) {
       const interval = setInterval(() => {
         dispatch(actions.tickTimers());
-        console.log('tick')
       }, 1000);
-
-      console.log('created', dispatch)
 
       setTimerInterval(interval);
 
       return () => {
-        console.log('clear')
         clearInterval(timerInterval);
       };
     }

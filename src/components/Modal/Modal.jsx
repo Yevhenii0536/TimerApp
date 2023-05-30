@@ -9,11 +9,18 @@ export const Modal = ({ timer, handleModalClose }) => {
   return (
     <div className={`modal ${value}`}>
       <div className="modal__content">
-        <h2 className="modal__title">Таймер завершено</h2>
+        <h2 className="modal__title">
+          Таймер завершено
+        </h2>
 
-        <p className="modal__text">{timer.message}</p>
+        <p className="modal__text">
+          {timer.message}
+        </p>
 
-        <Button className="modal-button" onClick={handleModalClose}>
+        <Button
+          className="modal-button"
+          onClick={handleModalClose}
+        >
           Закрити
         </Button>
       </div>
