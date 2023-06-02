@@ -1,0 +1,14 @@
+@import '../../styles/abstracts/colors';
+
+.footer {
+  display: flex;
+}
+
+
+.light {
+  background-color: var(--bg-light);
+}
+
+.dark {
+  background-color: var(--bg-dark);
+}

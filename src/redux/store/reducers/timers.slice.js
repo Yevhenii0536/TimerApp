@@ -3,7 +3,6 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   activeTimers: [],
   completedTimers: [],
-  theme: 'light',
 };
 
 export const timers = createSlice({

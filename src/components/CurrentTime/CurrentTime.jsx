@@ -24,7 +24,7 @@ export const CurrentTime = () => {
   return (
     <h2>
       {currentTime
-        ? getFormattedTime(currentTime)
+        ? `Поточний час - ${getFormattedTime(currentTime)}`
         : 'Loading...'}
     </h2>
   );

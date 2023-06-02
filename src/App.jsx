@@ -15,7 +15,15 @@ export const App = () => {
 
   return (
     <div className={`App ${value}`}>
-      <button onClick={handleToggleTheme}>Change</button>
+      <button
+        className='App__theme'
+        onClick={handleToggleTheme}
+      >
+        <span>
+          Change theme
+        </span>
+      </button>
+
       <TimerApp />
     </div>
   );

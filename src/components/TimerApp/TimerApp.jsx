@@ -6,6 +6,7 @@ import { CurrentTime } from '../CurrentTime/CurrentTime';
 import './TimerApp.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import { actions } from '../../redux/store/reducers/timers.slice';
+import { FooterAnim } from '../FooterAnim/FooterAnim';
 
 export const TimerApp = () => {
   const { completedTimers } = useSelector((state) => state.timers);
@@ -27,13 +28,17 @@ export const TimerApp = () => {
   };
   
   return (
-    <div className="timer-app">
-      <TimerForm />
-      <TimerList />
-      <CurrentTime />
-      {modalVisible && (
-        <Modal timer={currentTimer} handleModalClose={handleModalClose} />
-      )}
-    </div>
+    <>
+      <div className="timer-app">
+        <TimerForm />
+
+        <TimerList />
+        <CurrentTime />
+        {modalVisible && (
+          <Modal timer={currentTimer} handleModalClose={handleModalClose} />
+        )}
+      </div>
+      <FooterAnim />
+    </>
   );
 };

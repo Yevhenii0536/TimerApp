@@ -3,6 +3,7 @@
 %button {
   border: none;
   border-radius: $button-border-radius;
+  height: 40px;
   cursor: pointer;
   color: var(--white);
   transition: transform 0.3s;
@@ -14,12 +15,15 @@
 
 %button_primary {
   padding: 
-    $button-primary-padding-vertical 
-    $button-primary-padding-horizontal;
+  $button-primary-padding-vertical 
+  $button-primary-padding-horizontal;
   background-color: var(--primary-light);
 }
 
 %button_red {
+  display: flex;
+  align-items: center;
+  height: 25px;
   padding: 
   $button-red-padding-vertical 
   $button-red-padding-horizontal;
