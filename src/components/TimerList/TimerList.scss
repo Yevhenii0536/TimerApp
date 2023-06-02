@@ -1,36 +1,33 @@
 @import '../../styles/abstracts/colors';
 
 .timer-list {
-  width: 50%;
+  width: 25%;
   text-align: center;
   box-shadow: rgba(163, 163, 163, 0.75) 0px 0px 7px 0px;
 
-  ul {
-    margin-bottom: 110px;
-    padding: 10px;
-  }
-
-  li {
+  &__item {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 10px;
-    box-shadow: 1px 1px 15px -9px rgba(0,0,0,0.41);
     padding: 10px;
 
-    span {
+    &-message {
+      padding: 2px;
       text-align: left;
-
+      font-weight: bold;
       width: 25%;
       hyphens: auto;
       word-break: break-word;
     }
 
-    & .timer-message {
-      font-weight: bold;
+    &-light {
+      box-shadow: 1px 1px 15px -9px rgba(0,0,0,0.41);
     }
 
-    & .timer-time {
-      margin: 0 10px 0 10px;
+    &-dark {
+      box-shadow: 1px 1px 15px -9px rgba(255, 255, 255, 0.41);
+      color: var(--white);
     }
   }
 }

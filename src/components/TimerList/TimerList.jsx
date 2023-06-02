@@ -6,6 +6,7 @@ import { actions } from '../../redux/store/reducers/timers.slice';
 
 export const TimerList = () => {
   const { activeTimers } = useSelector((state) => state.timers);
+  const { value } = useSelector((state) => state.theme);
   const dispatch = useDispatch();
   const [timerInterval, setTimerInterval] = useState(null);
 
@@ -36,9 +37,14 @@ export const TimerList = () => {
       {activeTimers.length > 0 ? (
         <ul>
           {activeTimers.map((timer) => (
-            <li key={timer.id}>
-              <span className="timer-message">{timer.message}</span>
-              <span className="timer-time">{timer.seconds}</span>
+            <li
+              key={timer.id}
+              className={`
+              timer-list__item
+              timer-list__item-${value}`}
+            >
+              <div className="timer-list__item-message">{timer.message}</div>
+              <span className="timer-list__item-time">{timer.seconds}</span>
               <Button
                 className="timer-list__button"
                 onClick={() => dispatch(actions.remove(timer))}>
