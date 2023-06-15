@@ -1,6 +1,4 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[DEMO](https://yevhenii0536.github.io/TimerApp/).
 
 ## Available Scripts
 
