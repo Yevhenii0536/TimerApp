@@ -1,4 +1,4 @@
-[DEMO](https://yevhenii0536.github.io/TimerApp/).
+[DEMO](https://yevhenii0536.github.io/TimerApp/)
 
 ## Available Scripts
 
